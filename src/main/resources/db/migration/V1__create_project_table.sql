@@ -1,8 +1,8 @@
-create table Project (
-    id int primary key auto_increment not null,
-    name varchar(100) not null,
-    `value` decimal(10,2),
-    status enum('TODO', 'INPROGRESS', 'COMPLETED'),
-    client_id int,
-    techlead_id int
+CREATE TABLE Project (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    `value` DECIMAL(10,2),
+    status ENUM('TODO', 'INPROGRESS', 'COMPLETED'),
+    client_id INT,
+    techlead_id INT
 );
