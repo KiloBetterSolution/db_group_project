@@ -1,7 +1,7 @@
-create table Employee (
-    id int primary key not null auto_increment,
-    name varchar(50) not null,
-    salary decimal(6,2) not null,
-    bank_account_number varchar(28) not null,
-    national_insurance_number varchar(30) not null
+CREATE TABLE Employee (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    salary DECIMAL(6,2) NOT NULL,
+    bank_account_number VARCHAR(28) NOT NULL,
+    national_insurance_number VARCHAR(30) NOT NULL
 );
