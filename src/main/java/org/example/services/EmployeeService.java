@@ -17,4 +17,10 @@ public class EmployeeService {
     public List<Employee> getEmployeesByRole(String role) throws SQLException {
         return employeeDao.getAllEmployeeByRole(role);
     }
+
+    public Employee getEmployeeById(int id) throws SQLException {
+        return employeeDao.getEmployeeById(id);
+    }
+
+
 }
