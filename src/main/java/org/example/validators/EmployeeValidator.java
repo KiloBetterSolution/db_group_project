@@ -6,6 +6,8 @@ import org.example.models.EmployeeRequest;
 
 public class EmployeeValidator {
 
+    private static final int ID_11 = 11;
+
     EmployeeRequest employeeRequest;
 
     public EmployeeValidator() {
@@ -17,7 +19,7 @@ public class EmployeeValidator {
 
         int bankAccountNumberLength = employeeRequest.getBankAccountNumber()
                 .length();
-        if (bankAccountNumberLength != 11) {
+        if (bankAccountNumberLength != ID_11) {
             throw new InvalidException(Entity.EMPLOYEE,
                     "Invalid Bank Account Number");
         }

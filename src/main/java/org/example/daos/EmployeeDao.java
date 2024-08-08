@@ -10,6 +10,11 @@ import java.util.List;
 
 public class EmployeeDao {
 
+    private static final int ID_1 = 1;
+    private static final int ID_2 = 2;
+    private static final int ID_3 = 3;
+    private static final int ID_4 = 4;
+
     public List<Employee> getAllEmployeeByRole(String role)
             throws SQLException {
         List<Employee> employeeList = new ArrayList<>();
@@ -62,10 +67,10 @@ public class EmployeeDao {
         PreparedStatement st = c.prepareStatement(insertStatement,
                 Statement.RETURN_GENERATED_KEYS);
 
-        st.setString(1, employee.getName());
-        st.setDouble(2, employee.getSalary());
-        st.setString(3, employee.getBankAccountNumber());
-        st.setString(4, employee.getNationalInsuranceNumber());
+        st.setString(ID_1, employee.getName());
+        st.setDouble(ID_2, employee.getSalary());
+        st.setString(ID_3, employee.getBankAccountNumber());
+        st.setString(ID_4, employee.getNationalInsuranceNumber());
 
         st.executeUpdate();
 

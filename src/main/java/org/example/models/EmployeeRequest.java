@@ -14,7 +14,8 @@ public class EmployeeRequest {
     public EmployeeRequest(
             @JsonProperty("name") String name,
             @JsonProperty("salary") double salary,
-            @JsonProperty("nationalInsuranceNumber") String nationalInsuranceNumber,
+            @JsonProperty("nationalInsuranceNumber")
+            String nationalInsuranceNumber,
             @JsonProperty("bankAccountNumber") String bankAccountNumber) {
         this.name = name;
         this.salary = salary;
