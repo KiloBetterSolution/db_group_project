@@ -1,11 +1,11 @@
 package org.example.controllers;
 
-import org.example.services.EmployeeService;
+
 import org.example.services.ProjectService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -25,6 +25,7 @@ public class ProjectController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getClientHighestValueProject()
             throws SQLException {
-        return Response.ok().entity(projectService.getHighestValueProject()).build();
+        return Response.ok().entity(projectService.getHighestValueProject())
+                .build();
     }
 }

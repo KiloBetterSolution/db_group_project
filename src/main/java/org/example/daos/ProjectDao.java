@@ -2,13 +2,11 @@ package org.example.daos;
 
 import org.example.models.Project;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class ProjectDao {
 
@@ -18,9 +16,12 @@ public class ProjectDao {
         try(Connection connection = DatabaseConnector.getConnection()){
 
 
-            String query = "SELECT Client.Name as `Name`, value as `MaxValue` " +
-                    "FROM Project " +
-                    "JOIN Client ON Project.client_id=Client.id " +
+            String query = "SELECT Client.Name as `Name`, value as `MaxValue` "
+                    +
+                    "FROM Project "
+                    +
+                    "JOIN Client ON Project.client_id=Client.id "
+                    +
                     "ORDER BY value DESC LIMIT 1;";
 
             PreparedStatement statement = connection.prepareStatement(query);
