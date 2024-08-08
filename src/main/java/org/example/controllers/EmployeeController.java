@@ -24,6 +24,7 @@ public class EmployeeController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getALlEmployeesByRole(@PathParam("role") String role)
             throws SQLException {
-        return Response.ok().entity(employeeService.getEmployeesByRole(role)).build();
+        return Response.ok().entity(employeeService.getEmployeesByRole(
+                role)).build();
     }
 }

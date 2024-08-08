@@ -32,7 +32,8 @@ public class TestApplication extends Application<TestConfiguration> {
     public void run(final TestConfiguration configuration,
                     final Environment environment) {
         environment.jersey()
-                .register(new EmployeeController(new EmployeeService(new EmployeeDao())));
+                .register(new EmployeeController(new EmployeeService(
+                        new EmployeeDao())));
     }
 
 }
