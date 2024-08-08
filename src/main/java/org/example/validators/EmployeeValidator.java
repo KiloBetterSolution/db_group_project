@@ -4,8 +4,6 @@ import org.example.exceptions.Entity;
 import org.example.exceptions.InvalidException;
 import org.example.models.EmployeeRequest;
 
-import java.sql.SQLException;
-
 public class EmployeeValidator {
 
     EmployeeRequest employeeRequest;
@@ -15,13 +13,13 @@ public class EmployeeValidator {
     }
 
     public void validateEmployee(EmployeeRequest employeeRequest)
-            throws InvalidException,
-            SQLException {
+            throws InvalidException {
 
         int bankAccountNumberLength = employeeRequest.getBankAccountNumber()
                 .length();
         if (bankAccountNumberLength != 11) {
-            throw new InvalidException(Entity.EMPLOYEE, "Invalid Bank Account Number");
+            throw new InvalidException(Entity.EMPLOYEE,
+                    "Invalid Bank Account Number");
         }
     }
 }

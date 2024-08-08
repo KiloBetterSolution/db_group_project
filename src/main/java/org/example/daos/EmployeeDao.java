@@ -59,7 +59,8 @@ public class EmployeeDao {
                 + "bank_account_number, "
                 + "national_insurance_number) VALUES (?,?,?,?)";
 
-        PreparedStatement st = c.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement st = c.prepareStatement(insertStatement,
+                Statement.RETURN_GENERATED_KEYS);
 
         st.setString(1, employee.getName());
         st.setDouble(2, employee.getSalary());
