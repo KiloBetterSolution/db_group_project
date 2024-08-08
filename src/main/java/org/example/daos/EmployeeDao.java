@@ -55,7 +55,7 @@ public class EmployeeDao {
 
     public Employee getEmployeeById(int id) throws SQLException {
 
-        try(Connection connection = DatabaseConnector.getConnection()) {
+        try (Connection connection = DatabaseConnector.getConnection()) {
             String query = "SELECT Employee.id, name, salary, "
                     + "bank_account_number, "
                     + "national_insurance_number, "
