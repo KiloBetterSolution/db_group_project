@@ -18,7 +18,9 @@ public class EmployeeDao {
 
         try(Connection connection = DatabaseConnector.getConnection()) {
 
-            String query = "SELECT id, name, salary, bank_account_number, national_insurance_number, Role.role FROM Employee LEFT JOIN Employee_Role ON Employee.id = Employee_Role.employee_id LEFT JOIN `Role` ON Employee_Role.role_id = `Role`.id WHERE `role` = ?;";
+            String query = "SELECT Employee.id, name, salary, bank_account_number, " +
+                    "national_insurance_number, " +
+                    "Role.role FROM Employee LEFT JOIN Employee_Role ON Employee.id = Employee_Role.employee_id LEFT JOIN `Role` ON Employee_Role.role_id = `Role`.id WHERE `role` = ?;";
 
             PreparedStatement statement = connection.prepareStatement(query);
 
@@ -26,11 +28,12 @@ public class EmployeeDao {
 
             ResultSet resultSet = statement.executeQuery();
 
-            String roleName = resultSet.getString("role");
 
             while (resultSet.next()) {
+
+                String roleName = resultSet.getString("Role.role");
                 Employee employee = new Employee(
-                        resultSet.getInt("id"),
+                        resultSet.getInt("Employee.id"),
                         resultSet.getString("name"),
                         resultSet.getDouble("salary"),
                         resultSet.getString("bank_account_number"),
