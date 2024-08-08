@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ProjectRequest {
         private String name;
         private int value;
-        private int client_id;
+        private int clientId;
 
     public String getName() {
         return name;
@@ -24,12 +24,12 @@ public class ProjectRequest {
         this.value = value;
     }
 
-    public int getClient_id() {
-        return client_id;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setClient_id(int client_id) {
-        this.client_id = client_id;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     @JsonCreator
@@ -39,6 +39,6 @@ public class ProjectRequest {
                 @JsonProperty("client")int client_id) {
             this.name = name;
             this.value = value;
-            this.client_id = client_id;
+            this.clientId = clientId;
         }
 }

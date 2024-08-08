@@ -35,7 +35,8 @@ public class TestApplication extends Application<TestConfiguration> {
     @Override
     public void run(final TestConfiguration configuration,
                     final Environment environment) {
-        environment.jersey().register(new EmployeeController(new EmployeeService(
+        environment.jersey().register(
+                new EmployeeController(new EmployeeService(
                         new EmployeeDao())));
         environment.jersey().register(new ProjectController(new ProjectService(
                 new ProjectDao())));
