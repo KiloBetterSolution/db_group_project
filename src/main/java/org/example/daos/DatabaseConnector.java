@@ -5,13 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class DatabaseConnector {
-    private static Connection conn;
-    private DatabaseConnector() { }
+    private static Connection connection;
 
     public static Connection getConnection() throws SQLException {
 
-        if (conn != null && conn.isValid(0)) {
-            return conn;
+        if (connection != null && connection.isValid(0)) {
+            return connection;
         }
 
         try {
@@ -26,12 +25,14 @@ public final class DatabaseConnector {
                         "Add the following properties to env vars: "
                         + "DB_USERNAME, DB_PASSWORD, DB_HOST and DB_NAME");
             }
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://" + host + "/" + name, username, password);
-            return conn;
+            String db_url = "jdbc:mysql://" + host + "/" + name + username + password;
+            connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?useSSL=false",
+                    username, password);
+            return connection;
 
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+//            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
 
         return null;
