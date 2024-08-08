@@ -37,8 +37,8 @@ public class TestApplication extends Application<TestConfiguration> {
         environment.jersey()
                 .register(new EmployeeController(new EmployeeService(
                         new EmployeeDao())));
-        environment.jersey().register(new ProjectController(new ProjectService
-                (new ProjectDao())));
+        environment.jersey().register(new ProjectController(new ProjectService(
+                new ProjectDao())));
     }
 
 }

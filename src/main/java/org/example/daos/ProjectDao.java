@@ -13,7 +13,7 @@ public class ProjectDao {
     public Project getClientHighestValueProject() throws SQLException {
 
 
-        try(Connection connection = DatabaseConnector.getConnection()){
+        try (Connection connection = DatabaseConnector.getConnection()) {
 
 
             String query = "SELECT Client.Name as `Name`, value as `MaxValue` "
@@ -31,12 +31,8 @@ public class ProjectDao {
             while (resultSet.next()) {
                 return new Project(resultSet.getString("Name"),
                         resultSet.getDouble("MaxValue"));
-
-
             }
-
         }
         return null;
-
     }
 }
