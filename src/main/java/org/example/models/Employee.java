@@ -7,15 +7,17 @@ public class Employee {
     private double salary;
     private String bankAccountNumber;
     private String nationalInsuranceNumber;
+    private Role role;
 
     public Employee(int id, String name, double salary,
                     String bankAccountNumber,
-                    String nationalInsuranceNumber) {
+                    String nationalInsuranceNumber, Role role) {
         this.id = id;
         this.name = name;
         this.salary = salary;
         this.bankAccountNumber = bankAccountNumber;
         this.nationalInsuranceNumber = nationalInsuranceNumber;
+        this.role = role;
     }
 
     public int getId() {
@@ -58,4 +60,11 @@ public class Employee {
         this.nationalInsuranceNumber = nationalInsuranceNumber;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
