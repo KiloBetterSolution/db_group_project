@@ -5,11 +5,11 @@ public enum Entity {
 
     private final String entity;
 
-    Entity(String entity){
+    Entity(String entity) {
         this.entity = entity;
     }
 
-    public  String getEntity(){
+    public String getEntity() {
         return this.entity;
     }
 }

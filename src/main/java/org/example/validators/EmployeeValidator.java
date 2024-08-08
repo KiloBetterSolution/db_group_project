@@ -14,13 +14,14 @@ public class EmployeeValidator {
         this.employeeRequest = employeeRequest;
     }
 
-    public  void validateEmployee(EmployeeRequest employeeRequest) throws InvalidException,
+    public void validateEmployee(EmployeeRequest employeeRequest)
+            throws InvalidException,
             SQLException {
 
-        int BankAccountNumberLength = employeeRequest.getBankAccountNumber().length();
-        if(BankAccountNumberLength != 11 ){
+        int bankAccountNumberLength = employeeRequest.getBankAccountNumber()
+                .length();
+        if (bankAccountNumberLength != 11) {
             throw new InvalidException(Entity.EMPLOYEE, "Invalid Bank Account Number");
         }
-
     }
 }

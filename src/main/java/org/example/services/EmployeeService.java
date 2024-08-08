@@ -16,7 +16,8 @@ public class EmployeeService {
     private EmployeeDao employeeDao;
     private EmployeeValidator employeeValidator;
 
-    public EmployeeService(EmployeeDao employeeDao, EmployeeValidator employeeValidator) {
+    public EmployeeService(EmployeeDao employeeDao,
+                           EmployeeValidator employeeValidator) {
         this.employeeDao = employeeDao;
         this.employeeValidator = employeeValidator;
     }

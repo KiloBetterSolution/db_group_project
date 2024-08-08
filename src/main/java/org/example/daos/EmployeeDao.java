@@ -55,8 +55,9 @@ public class EmployeeDao {
     public int createEmployee(EmployeeRequest employee) throws SQLException {
         Connection c = DatabaseConnector.getConnection();
 
-        String insertStatement = "INSERT INTO `Employee` (name, salary, bank_account_number, " +
-                "national_insurance_number) VALUES (?,?,?,?)";
+        String insertStatement = "INSERT INTO `Employee` (name, salary, "
+                + "bank_account_number, "
+                + "national_insurance_number) VALUES (?,?,?,?)";
 
         PreparedStatement st = c.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
 
@@ -69,10 +70,10 @@ public class EmployeeDao {
 
         ResultSet rs = st.getGeneratedKeys();
 
-        if(rs.next()){
+        if (rs.next()) {
             return rs.getInt(1);
         }
         return -1;
     }
-    
+
 }
