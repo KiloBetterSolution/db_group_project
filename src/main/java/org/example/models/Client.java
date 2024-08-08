@@ -11,7 +11,8 @@ public class Client {
     private Date createDate;
     private int acquiredBy;
 
-    public Client(int id, String name, String address, String phoneNumber, Date createDate, int acquiredBy) {
+    public Client(int id, String name, String address, String phoneNumber,
+                  Date createDate, int acquiredBy) {
         this.id = id;
         this.name = name;
         this.address = address;
