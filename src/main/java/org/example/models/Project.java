@@ -10,13 +10,13 @@ public class Project {
     private int teachLeadId;
 
     public Project(int id, int clientId, Status status, String name,
-                   double value, int teachLead_id) {
+                   double value, int teachLeadId) {
         this.id = id;
         this.clientId = clientId;
         this.status = status;
         this.name = name;
         this.value = value;
-        this.teachLeadId = teachLead_id;
+        this.teachLeadId = teachLeadId;
     }
 
     public int getId() {
