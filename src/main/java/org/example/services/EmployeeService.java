@@ -38,4 +38,10 @@ public class EmployeeService {
         }
         return id;
     }
+
+    public Employee getEmployeeById(int id) throws SQLException {
+        return employeeDao.getEmployeeById(id);
+    }
+
+
 }

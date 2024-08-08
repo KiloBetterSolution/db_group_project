@@ -25,13 +25,36 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    // ex. 2,4
     @GET
     @Path("/{role}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getALlEmployeesByRole(@PathParam("role") String role)
             throws SQLException {
-        return Response.ok().entity(employeeService.getEmployeesByRole(
-                role)).build();
+        try {
+            return Response.ok().entity(employeeService.getEmployeesByRole(
+                    role)).build();
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("SQL issue. " + e.getMessage()).build();
+        }
+    }
+
+
+    //ex. 13, 16 - to search specific employee, you need just id. Adding role
+    // won't change anything
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEmployeeById(@PathParam("id") int id)
+            throws SQLException {
+        try {
+            return Response.ok().entity(employeeService.getEmployeeById(id))
+                    .build();
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("SQL issue. " + e.getMessage()).build();
+        }
     }
 
 //    1. As a member of the HR team I want to be able to create a new delivery
