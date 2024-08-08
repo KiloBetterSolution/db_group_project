@@ -19,6 +19,11 @@ public class Project {
         this.teachLeadId = teachLeadId;
     }
 
+    public Project(String name, double value) {
+        this.name = name;
+        this.value = value;
+    }
+
     public int getId() {
         return id;
     }
