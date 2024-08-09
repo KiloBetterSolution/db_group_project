@@ -36,7 +36,7 @@ public class ProjectRequest {
         public ProjectRequest(
                 @JsonProperty("name") String name,
                 @JsonProperty("value") int value,
-                @JsonProperty("client")int client_id) {
+                @JsonProperty("client")int clientId) {
             this.name = name;
             this.value = value;
             this.clientId = clientId;
