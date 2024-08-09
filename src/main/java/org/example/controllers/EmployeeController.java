@@ -27,7 +27,7 @@ public class EmployeeController {
 
     // ex. 2,4
     @GET
-    @Path("/role/{role}")
+    @Path("/roles/{role}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getALlEmployeesByRole(@PathParam("role") String role)
             throws SQLException {
@@ -44,7 +44,7 @@ public class EmployeeController {
     //ex. 13, 16 - to search specific employee, you need just id. Adding role
     // won't change anything
     @GET
-    @Path("/id/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEmployeeById(@PathParam("id") int id)
             throws SQLException {
