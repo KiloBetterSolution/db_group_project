@@ -1,6 +1,7 @@
 package org.example.daos;
 
 import org.example.models.Project;
+import org.example.models.ProjectRequest;
 
 
 import java.sql.Connection;
@@ -36,7 +37,7 @@ public class ProjectDao {
         }
     }
 
-    public int createProject(Project project) throws SQLException
+    public int createProject(ProjectRequest project) throws SQLException
     {
         Connection c = DatabaseConnector.getConnection();
         String insertStatement = "INSERT INTO Project (name, value, client_id) VALUES (?,?,?)";
