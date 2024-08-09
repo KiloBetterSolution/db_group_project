@@ -19,6 +19,12 @@ public class Project {
         this.teachLeadId = teachLeadId;
     }
 
+    public Project(String name, double value, int clientId) {
+        this.name = name;
+        this.value = value;
+        this.clientId = clientId;
+    }
+
     public Project(String name, double value) {
         this.name = name;
         this.value = value;
