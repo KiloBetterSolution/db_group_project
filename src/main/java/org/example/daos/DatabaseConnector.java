@@ -24,7 +24,7 @@ public final class DatabaseConnector {
                     || name == null) {
                 throw new IllegalArgumentException(
                         "Add the following properties to env vars: "
-                                + "DB_USERNAME, DB_PASSWORD,"
+                                + "DB_USERNAME, DB_PASSWORD, "
                                 + "DB_HOST and DB_NAME");
             }
             conn = DriverManager.getConnection(

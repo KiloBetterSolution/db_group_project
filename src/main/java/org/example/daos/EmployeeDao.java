@@ -1,16 +1,23 @@
 package org.example.daos;
 
 import org.example.models.Employee;
+import org.example.models.EmployeeRequest;
 import org.example.models.Role;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDao {
+
+    private static final int ID_1 = 1;
+    private static final int ID_2 = 2;
+    private static final int ID_3 = 3;
+    private static final int ID_4 = 4;
 
     public List<Employee> getAllEmployeeByRole(String role)
             throws SQLException {
@@ -51,6 +58,32 @@ public class EmployeeDao {
         }
 
         return employeeList;
+    }
+
+
+    public int createEmployee(EmployeeRequest employee) throws SQLException {
+        Connection c = DatabaseConnector.getConnection();
+
+        String insertStatement = "INSERT INTO `Employee` (name, salary, "
+                + "bank_account_number, "
+                + "national_insurance_number) VALUES (?,?,?,?)";
+
+        PreparedStatement st = c.prepareStatement(insertStatement,
+                Statement.RETURN_GENERATED_KEYS);
+
+        st.setString(ID_1, employee.getName());
+        st.setDouble(ID_2, employee.getSalary());
+        st.setString(ID_3, employee.getBankAccountNumber());
+        st.setString(ID_4, employee.getNationalInsuranceNumber());
+
+        st.executeUpdate();
+
+        ResultSet rs = st.getGeneratedKeys();
+
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return -1;
     }
 
     public Employee getEmployeeById(int id) throws SQLException {

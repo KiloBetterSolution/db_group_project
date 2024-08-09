@@ -11,6 +11,7 @@ import org.example.daos.EmployeeDao;
 import org.example.daos.ProjectDao;
 import org.example.services.EmployeeService;
 import org.example.services.ProjectService;
+import org.example.validators.EmployeeValidator;
 
 public class TestApplication extends Application<TestConfiguration> {
     public static void main(final String[] args) throws Exception {
@@ -35,11 +36,12 @@ public class TestApplication extends Application<TestConfiguration> {
     @Override
     public void run(final TestConfiguration configuration,
                     final Environment environment) {
-        environment.jersey().register(
-                new EmployeeController(new EmployeeService(
-                        new EmployeeDao())));
-        environment.jersey().register(new ProjectController(new ProjectService(
+        environment.jersey()
+                .register(new ProjectController(new ProjectService(
                 new ProjectDao())));
+        environment.jersey()
+                .register(new EmployeeController(new EmployeeService(
+                        new EmployeeDao(), new EmployeeValidator())));
     }
 
 }
