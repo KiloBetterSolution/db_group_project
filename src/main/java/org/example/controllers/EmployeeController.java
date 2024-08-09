@@ -21,7 +21,7 @@ public class EmployeeController {
 
     // ex. 2,4
     @GET
-    @Path("/{role}")
+    @Path("roles/{role}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getALlEmployeesByRole(@PathParam("role") String role)
             throws SQLException {
