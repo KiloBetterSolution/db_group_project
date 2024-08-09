@@ -6,8 +6,11 @@ import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import org.example.controllers.EmployeeController;
+import org.example.controllers.ProjectController;
 import org.example.daos.EmployeeDao;
+import org.example.daos.ProjectDao;
 import org.example.services.EmployeeService;
+import org.example.services.ProjectService;
 import org.example.validators.EmployeeValidator;
 
 public class TestApplication extends Application<TestConfiguration> {
