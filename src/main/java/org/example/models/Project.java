@@ -25,6 +25,11 @@ public class Project {
         this.clientId = clientId;
     }
 
+    public Project(String name, double value) {
+        this.name = name;
+        this.value = value;
+    }
+
     public int getId() {
         return id;
     }

@@ -6,15 +6,18 @@ import org.example.exceptions.FailedToCreateException;
 import org.example.exceptions.InvalidException;
 import org.example.models.Project;
 import org.example.models.ProjectRequest;
-
 import java.sql.SQLException;
 import java.util.List;
 
 public class ProjectService {
-     ProjectDao projectDao;
+    ProjectDao projectDao;
 
-     public ProjectService(ProjectDao projectDao) {
-         this.projectDao = projectDao;
+    public ProjectService(ProjectDao projectDao) {
+        this.projectDao = projectDao;
+    }
+
+    public Project getHighestValueProject() throws SQLException {
+        return projectDao.getClientHighestValueProject();
     }
 
     public List<Project> getAllProjects() throws SQLException {

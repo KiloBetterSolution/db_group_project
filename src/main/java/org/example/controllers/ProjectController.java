@@ -15,16 +15,28 @@ import java.sql.SQLException;
 
 @Path("/project")
 public class ProjectController {
-    ProjectService projectService;
 
-    public ProjectController(ProjectService projectService)
-    { this.projectService = projectService; }
+    private ProjectService projectService;
+
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
+
+    @GET
+    @Path("/max")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getClientHighestValueProject()
+            throws SQLException {
+        return Response.ok().entity(projectService.getHighestValueProject())
+                .build();
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProjects() throws SQLException {
         return Response.ok().entity(projectService.getAllProjects()).build();
     }
+
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response createProject(ProjectRequest projectRequest) {
