@@ -47,7 +47,7 @@ public class ProjectDao {
         try (Connection connection = DatabaseConnector.getConnection()) {
             Statement statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery (
+            ResultSet resultSet = statement.executeQuery(
                     "SELECT name, value, client_id FROM `Project`;");
 
             while (resultSet.next()) {
@@ -64,7 +64,8 @@ public class ProjectDao {
 
     public int createProject(ProjectRequest project) throws SQLException {
         Connection c = DatabaseConnector.getConnection();
-        String insertStatement = "INSERT INTO Project (name, value, client_id) VALUES (?,?,?)";
+        String insertStatement = "INSERT INTO Project ("
+                + "name, value, client_id) VALUES (?,?,?)";
         PreparedStatement st = c.prepareStatement(
                 insertStatement, Statement.RETURN_GENERATED_KEYS);
 
